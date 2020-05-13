@@ -11,4 +11,9 @@ router.get('/mwi', function(req, res, next) {
   res.render('mwi', { title: 'Mobile Web Insterstial' });
 });
 
+/* GET home page. */
+router.get('/range-size', function(req, res, next) {
+  res.render('range-size', { title: 'Ranged Size Tagging Example' });
+});
+
 module.exports = router;
