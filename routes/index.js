@@ -16,4 +16,10 @@ router.get('/range-size', function(req, res, next) {
   res.render('range-size', { title: 'Ranged Size Tagging Example' });
 });
 
+/* GET home page. */
+router.get('/web-anchor', function(req, res, next) {
+  res.render('web-anchor', { title: 'Mobile Web Anchor' });
+});
+
+
 module.exports = router;
