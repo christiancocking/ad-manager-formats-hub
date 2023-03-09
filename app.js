@@ -18,7 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(function(req, res, next) {
+  res.setHeader('Accept-CH', 'Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version, Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Arch, Sec-CH-UA-Bitness')
+  //res.setHeader('Permissions-Policy', 'ch-ua-model=*,ch-ua-platform-version=*,sec-ch-ua-platform-version=*,sec-ch-ua-bitness=*,sec-ch-ua-arch=*, sec-ch-ua-bitness=*')
+  //res.setHeader('Permissions-Policy', 'ch-ua-model=*,ch-ua-platform-version=*,ch-ua-arch=*,ch-ua-model=*,ch-ua-arch=*,ch-ua-bitness=*,ch-ua-model=*')
+  res.setHeader('Permissions-Policy', 'ch-ua-model=*,ch-ua-platform-version=*,ch-ua=*,ch-ua-mobile=*,ch-ua-platform=*,ch-ua-full-version-list=*,ch-ua-arch=*,ch-ua-bitness=*,ch-ua-model=*')
+  next()
+})
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
